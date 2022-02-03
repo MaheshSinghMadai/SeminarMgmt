@@ -1,0 +1,95 @@
+﻿@model SeminarMgmt.Models.Seminar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Seminar</h4>
+<hr />
+<div class="row">
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SeminarId" />
+             <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-row">
+                <div class="form-group  col-md-6">
+                    <label asp-for="SeminarName" class="control-label"></label>
+                    <input asp-for="SeminarName" class="form-control" />
+                    <span asp-validation-for="SeminarName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                     <label asp-for="SeminarType" class="control-label"></label>
+                     <select asp-for="SeminarType" class="form-control">
+
+                    <option value="Students">Students</option>
+                    <option value="Teachers">Teachers</option>
+                    <option value="Instructors">Instructors</option>
+                    <option value="Faculty">Faculty</option>
+                     <option value="Employee">Employee</option>
+                </select>
+                <span asp-validation-for="SeminarType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SeminarDescription" class="control-label"></label>
+                <input asp-for="SeminarDescription" class="form-control"
+                     style="height:150px;"
+            id="exampleFormControlTextarea1" rows="6" />
+                <span asp-validation-for="SeminarDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="StartTime" class="control-label"></label>
+                        <input asp-for="StartTime" class="form-control" />
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+                     <div class="form-group col-md-6">
+                        <label asp-for="EndTime" class="control-label"></label>
+                        <input asp-for="EndTime" class="form-control" />
+                        <span asp-validation-for="EndTime" class="text-danger"></span>
+                    </div>
+               </div> 
+
+               <div class="form-group">
+                <label asp-for="SpeakersName" class="control-label"></label>
+                <input asp-for="SpeakersName" class="form-control"
+            
+         style="height:150px;"
+                    id="exampleFormControlTextarea1" rows="6" />
+                        <span asp-validation-for="SpeakersName" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="col-md-6">
+                 <div class="form-group ">
+                        <label asp-for="OrganizerName" class="control-label"></label>
+                        <input asp-for="OrganizerName" class="form-control" />
+                       <span asp-validation-for="OrganizerName" class="text-danger"></span>
+                    </div>
+                     <div class="form-group">
+                        <label asp-for="OrganizerLocation" class="control-label"></label>
+                        <input asp-for="OrganizerLocation" class="form-control" />
+                       <span asp-validation-for="OrganizerLocation" class="text-danger"></span>
+                    </div>
+               </div>
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        
+        </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SeminarMgmt.Models.Seminar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Seminar Details</h1>
+<hr />
+<p>
+    <a class="btn btn-info" asp-action="Create">Create New Seminar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SeminarName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeminarDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeminarType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeakersName)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeakersName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SeminarId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SeminarId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SeminarId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

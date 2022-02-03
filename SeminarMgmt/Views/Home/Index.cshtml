@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SeminarMgmt.Models.Seminar>
+
+    <div class="container bg-light" style="margin-top:30px;background-color:darkgrey;height:80px;">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-8" style="margin:30px;">
+           
+        </div>
+    </div>
+</div>
+ <div class="container bg-light" style="margin-top:30px;background-color:darkgrey;">
+    <div class="row" >
+       
+ @foreach(var item in Model){
+      <hr />
+    <div class="card" style="width: 18rem;margin:20px">
+      <img class="card-img-top" src="~/white.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><strong>@Html.DisplayFor(modelItem => item.SeminarName)</strong></h4>      
+            <h6 class="card-title"><strong>Seminar For: </strong>@Html.DisplayFor(modelItem => item.SeminarType)</h6>  
+            <h6 class="card-title"><strong>Date:</strong> @Html.DisplayFor(modelItem => item.StartTime) </h6>  
+            <h6 class="card-title"><strong>Ogranied By: </strong>@Html.DisplayFor(modelItem => item.OrganizerName) </h6> 
+           </div>
+            <a class="btn btn-info" asp-controller="Seminar" asp-action="Details" asp-route-id="@item.SeminarId"
+                           role="button">
+                            See details
+                        </a>
+     
+
+    </div>
+    }
+    </div>
+    </div>

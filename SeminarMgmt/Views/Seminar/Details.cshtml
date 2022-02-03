@@ -1,0 +1,80 @@
+﻿@model SeminarMgmt.Models.Seminar
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="font-family:monospace">Details</h1>
+
+<div class="col-md-6">
+            <br />
+            <h2 style="font-family:monospace">@Html.DisplayFor(model => model.SeminarName)</h2>
+            <p class="mb-2 text-muted text-uppercase small">Seminar for @Html.DisplayFor(model => model.SeminarType)</p>
+
+            <div class="rating">
+                <span class="fas fa-star"></span>
+                <span class="fas fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <br />
+            <p>
+                <span class="mr-1">
+                    <strong>
+                        Date @Html.DisplayFor(model => model.StartTime) 
+                    </strong>
+                </span>
+            </p>
+            <p class="pt-1">
+                @Html.DisplayFor(model => model.SeminarDescription)
+            </p>
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless mb-0">
+                    <tbody>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Ends in</strong></th>
+                            <td>@Html.DisplayFor(model => model.EndTime) </td>
+                        </tr>
+                         <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Speakers</strong></th>
+                            <td>@Html.DisplayFor(model => model.SpeakersName) </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+             <div class="table-responsive">
+                <table class="table table-sm table-borderless mb-0">
+                    <tbody>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Organised By </strong></th>
+                            <td>@Html.DisplayFor(model => model.OrganizerName) </td>
+                        </tr>
+                         <tr>
+                            <th class="pl-0 w-25" scope="row"><strong></strong></th>
+                            <td>@Html.DisplayFor(model => model.OrganizerLocation) </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+          <br />
+            <a class="btn btn-info" asp-controller="Seminar" asp-action="ViewAttendeeDetails"
+               asp-route-id="@Model.SeminarId"               
+            role="button">
+                            See Attendee List
+                        </a>
+            <hr />
+            
+    </div>
+             <a class="btn btn-info" asp-controller="Attendee" asp-action="Register"
+               asp-route-id="@Model.SeminarId"               
+            role="button">
+                            Register for the event
+                        </a>
+            
+                        <br />
+<div>
+    <br />
+    <a asp-action="Index">Back to List</a>
+</div>
